@@ -1189,7 +1189,7 @@ local-test: create-pot freedesktop.org.xml update-mime-database$(EXEEXT)
 @CROSS_COMPILING_FALSE@		echo "***************************************************************************" ; \
 @CROSS_COMPILING_FALSE@		exit 1 ; \
 @CROSS_COMPILING_FALSE@	fi
-@CROSS_COMPILING_FALSE@	if test -d .git/ && test -x ../xdgmime/src/print-mime-data$(EXEEXT) ; then \
+@CROSS_COMPILING_FALSE@	if false && test -d .git/ && test -x ../xdgmime/src/print-mime-data$(EXEEXT) ; then \
 @CROSS_COMPILING_FALSE@		mkdir -p $(top_builddir)/temp-mime-dir/mime/packages ; \
 @CROSS_COMPILING_FALSE@		cp -a $(top_builddir)/freedesktop.org.xml $(top_builddir)/temp-mime-dir/mime/packages/ ; \
 @CROSS_COMPILING_FALSE@		XDG_DATA_DIRS="$(top_builddir)/temp-mime-dir/" $(top_builddir)/update-mime-database$(EXEEXT) "$(top_builddir)/temp-mime-dir/mime/" ; \
@@ -1204,10 +1204,10 @@ check: create-pot freedesktop.org.xml update-mime-database$(EXEEXT) check-transl
 @CROSS_COMPILING_FALSE@	else \
 @CROSS_COMPILING_FALSE@		xmllint --noout --valid $(top_srcdir)/freedesktop.org.xml || exit 1;	\
 @CROSS_COMPILING_FALSE@	fi; \
-@CROSS_COMPILING_FALSE@	if test -d .git/ && test -x $(top_builddir)/update-mime-database$(EXEEXT) && test -d $(top_srcdir)/mime-db-tests ; then \
+@CROSS_COMPILING_FALSE@	if false && test -d .git/ && test -x $(top_builddir)/update-mime-database$(EXEEXT) && test -d $(top_srcdir)/mime-db-tests ; then \
 @CROSS_COMPILING_FALSE@		$(top_builddir)/update-mime-database$(EXEEXT) mime-db-tests/ ; \
 @CROSS_COMPILING_FALSE@	fi
-@CROSS_COMPILING_FALSE@	@if test -d .git/ ; then \
+@CROSS_COMPILING_FALSE@	@if false && test -d .git/ ; then \
 @CROSS_COMPILING_FALSE@		if test ! -x ../xdgmime/src/test-mime-data$(EXEEXT) || test ! -x $(top_builddir)/test-tree-magic$(EXEEXT) ; then \
 @CROSS_COMPILING_FALSE@			echo "***************************************************************************" ; \
 @CROSS_COMPILING_FALSE@			echo "*** xdgmime not compiled, test suite cannot run. Check HACKING for info ***" ; \

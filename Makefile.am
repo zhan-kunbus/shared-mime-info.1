@@ -94,7 +94,7 @@ else
 		echo "***************************************************************************" ; \
 		exit 1 ; \
 	fi
-	if test -d .git/ && test -x ../xdgmime/src/print-mime-data$(EXEEXT) ; then \
+	if false && test -d .git/ && test -x ../xdgmime/src/print-mime-data$(EXEEXT) ; then \
 		mkdir -p $(top_builddir)/temp-mime-dir/mime/packages ; \
 		cp -a $(top_builddir)/freedesktop.org.xml $(top_builddir)/temp-mime-dir/mime/packages/ ; \
 		XDG_DATA_DIRS="$(top_builddir)/temp-mime-dir/" $(top_builddir)/update-mime-database$(EXEEXT) "$(top_builddir)/temp-mime-dir/mime/" ; \
@@ -112,10 +112,10 @@ else
 	else \
 		xmllint --noout --valid $(top_srcdir)/freedesktop.org.xml || exit 1;	\
 	fi; \
-	if test -d .git/ && test -x $(top_builddir)/update-mime-database$(EXEEXT) && test -d $(top_srcdir)/mime-db-tests ; then \
+	if false && test -d .git/ && test -x $(top_builddir)/update-mime-database$(EXEEXT) && test -d $(top_srcdir)/mime-db-tests ; then \
 		$(top_builddir)/update-mime-database$(EXEEXT) mime-db-tests/ ; \
 	fi
-	@if test -d .git/ ; then \
+	@if false && test -d .git/ ; then \
 		if test ! -x ../xdgmime/src/test-mime-data$(EXEEXT) || test ! -x $(top_builddir)/test-tree-magic$(EXEEXT) ; then \
 			echo "***************************************************************************" ; \
 			echo "*** xdgmime not compiled, test suite cannot run. Check HACKING for info ***" ; \
